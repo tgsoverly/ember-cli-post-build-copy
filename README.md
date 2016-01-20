@@ -10,10 +10,11 @@ Once your build is complete you might need to move your build files to an extern
 
     //config/environment.js
     ENV['ember-cli-post-build-copy'] = {
+      "replace":true,
       "development" : [
           ['/assets/vendor.js','../javascripts/vendor.js']
       ]
     }
 
 The first argument is relative to the "dist" folder
-The second argument is relative to the "root: of the ember application
+The second argument is relative to the "root" of the ember application

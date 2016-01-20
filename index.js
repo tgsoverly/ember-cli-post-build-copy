@@ -15,6 +15,11 @@ module.exports = {
       var self = this;
       if(self.configObject && self.configObject["ember-cli-post-build-copy"]){
         let copyConfig = self.configObject["ember-cli-post-build-copy"];
+        let replace = false;
+        if(copyConfig.replace){
+          replace = copyConfig.replace
+        }
+
         if(copyConfig[self.buildEnv]){
           let copyEnvConfig = copyConfig[self.buildEnv];
           console.log("ember-cli-post-build-copy: copying files "+JSON.stringify(copyEnvConfig)+".");
@@ -23,7 +28,7 @@ module.exports = {
               let src = path.resolve(results.directory+pair[0])
               let dest = path.resolve(pair[1])
               console.log("ember-cli-post-build-copy: copying "+src+" to "+dest);
-              fs.copy(results.directory+pair[0], pair[1]);
+              fs.copy(results.directory+pair[0], pair[1], { replace: replace });
           }
         }else{
           console.log("ember-cli-post-build-copy: no copy config for "+this.buildEnv)
