@@ -2,7 +2,7 @@
 'use strict';
 
 var path = require('path');
-var fs = require('fs.extra');
+var fs = require('fs-extra');
 
 module.exports = {
   name: 'ember-cli-post-build-copy',
@@ -28,7 +28,7 @@ module.exports = {
               let src = path.resolve(results.directory+pair[0])
               let dest = path.resolve(pair[1])
               console.log("ember-cli-post-build-copy: copying "+src+" to "+dest);
-              fs.copy(results.directory+pair[0], pair[1], { replace: replace });
+              fs.copySync(results.directory+pair[0], pair[1], { clobber: replace });
           }
         }else{
           console.log("ember-cli-post-build-copy: no copy config for "+this.buildEnv)
