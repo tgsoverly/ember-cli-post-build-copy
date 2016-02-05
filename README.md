@@ -11,6 +11,7 @@ Once your build is complete you might need to move your build files to an extern
     //config/environment.js
     ENV['ember-cli-post-build-copy'] = {
       "replace":true,
+      "verbose":false,
       "development" : [
           ['/assets/vendor.js','../javascripts/vendor.js']
       ]
