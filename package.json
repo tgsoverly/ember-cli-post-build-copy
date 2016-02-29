@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-post-build-copy",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Copy files from your build to other locations",
   "repository": "",
   "directories": {
